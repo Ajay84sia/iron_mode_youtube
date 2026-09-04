@@ -1,0 +1,422 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Anton", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background: #000;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: #dc2626;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dc2626;
+}
+
+iframe {
+  display: block;
+  border: 0;
+}
+
+/* =====================================
+   HERO
+===================================== */
+
+.hero-section {
+  position: relative;
+
+  min-height: calc(100svh - 76px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding: clamp(50px, 7vh, 85px) 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-badge {
+  margin-bottom: clamp(25px, 4vh, 45px);
+}
+
+.hero-quote {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  animation: quoteFade 2s ease both;
+}
+
+.hero-quote h1 {
+  margin: 0;
+
+  width: 100%;
+
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+
+  text-transform: uppercase;
+
+  font-size: clamp(3.2rem, 7.8vw, 7.5rem);
+
+  line-height: 0.88;
+
+  letter-spacing: -0.015em;
+
+  text-align: center;
+}
+
+.hero-quote .quote-white,
+.hero-quote .quote-red {
+  display: block;
+
+  white-space: nowrap;
+}
+
+.hero-quote .quote-white {
+  color: #fff;
+}
+
+.hero-quote .quote-red {
+  color: #ed0000;
+}
+
+.hero-open-quote {
+  margin-bottom: 15px;
+
+  font-family: "Anton", sans-serif;
+
+  font-size: clamp(2rem, 4vw, 3.5rem);
+
+  line-height: 1;
+
+  color: #ed0000;
+}
+
+.hero-close-quote {
+  margin-top: 15px;
+
+  font-family: "Anton", sans-serif;
+
+  font-size: clamp(2rem, 4vw, 3.5rem);
+
+  line-height: 1;
+
+  color: #ed0000;
+}
+
+.hero-tagline {
+  margin-top: clamp(20px, 3vh, 32px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+}
+
+.hero-tagline-line {
+  width: clamp(30px, 4vw, 60px);
+
+  height: 1px;
+
+  background: #dc2626;
+}
+
+.hero-tagline-text {
+  font-size: clamp(8px, 0.7vw, 10px);
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.3em;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.hero-dots {
+  margin-top: clamp(20px, 3vh, 30px);
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.hero-dot {
+  width: 6px;
+  height: 6px;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.2);
+
+  cursor: pointer;
+
+  transition:
+    width 0.3s ease,
+    background 0.3s ease;
+}
+
+.hero-dot.active {
+  width: 28px;
+
+  background: #dc2626;
+}
+
+/* =====================================
+   ANIMATIONS
+===================================== */
+
+.quote-animation {
+  animation: quoteFade 2s ease both;
+}
+
+@keyframes quoteFade {
+  0% {
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    filter: blur(7px);
+  }
+
+  50% {
+    opacity: 0.8;
+
+    filter: blur(2px);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: translateY(0);
+
+    filter: blur(0);
+  }
+}
+
+@keyframes equalizer {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+
+    opacity: 0.55;
+  }
+
+  50% {
+    transform: scaleY(1);
+
+    opacity: 1;
+  }
+}
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 1024px) {
+  .hero-section {
+    min-height: calc(100svh - 70px);
+  }
+
+  .hero-content {
+    padding: 55px 30px;
+  }
+
+  .hero-quote h1 {
+    font-size: clamp(3.8rem, 9vw, 6.5rem);
+  }
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 767px) {
+  .hero-section {
+    min-height: calc(100svh - 68px);
+  }
+
+  .hero-content {
+    min-height: calc(100svh - 68px);
+
+    padding: 45px 18px 40px;
+  }
+
+  .hero-badge {
+    margin-bottom: 30px;
+  }
+
+  .hero-quote h1 {
+    font-size: clamp(3rem, 14vw, 5rem);
+
+    line-height: 0.9;
+
+    letter-spacing: -0.01em;
+  }
+
+  .hero-quote .quote-white,
+  .hero-quote .quote-red {
+    white-space: normal;
+  }
+
+  .hero-open-quote {
+    margin-bottom: 12px;
+
+    font-size: 2rem;
+  }
+
+  .hero-close-quote {
+    margin-top: 12px;
+
+    font-size: 2rem;
+  }
+
+  .hero-tagline {
+    gap: 10px;
+  }
+
+  .hero-tagline-line {
+    width: 25px;
+  }
+
+  .hero-tagline-text {
+    max-width: 230px;
+
+    font-size: 8px;
+
+    line-height: 1.5;
+
+    letter-spacing: 0.2em;
+  }
+
+  .hero-dots {
+    margin-top: 22px;
+  }
+}
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media (max-width: 480px) {
+  .hero-content {
+    padding-left: 15px;
+
+    padding-right: 15px;
+  }
+
+  .hero-quote h1 {
+    font-size: clamp(2.8rem, 15vw, 4rem);
+
+    line-height: 0.91;
+  }
+
+  .hero-badge {
+    margin-bottom: 25px;
+  }
+
+  .hero-tagline {
+    margin-top: 20px;
+  }
+}
+
+/* =====================================
+   SHORT LAPTOP SCREENS
+===================================== */
+
+@media (min-width: 768px) and (max-height: 800px) {
+  .hero-section {
+    min-height: calc(100svh - 70px);
+  }
+
+  .hero-content {
+    padding-top: 35px;
+
+    padding-bottom: 35px;
+  }
+
+  .hero-badge {
+    margin-bottom: 20px;
+  }
+
+  .hero-quote h1 {
+    font-size: clamp(3.5rem, 7vw, 6rem);
+  }
+
+  .hero-open-quote {
+    margin-bottom: 8px;
+  }
+
+  .hero-close-quote {
+    margin-top: 8px;
+  }
+
+  .hero-tagline {
+    margin-top: 18px;
+  }
+
+  .hero-dots {
+    margin-top: 15px;
+  }
+}
